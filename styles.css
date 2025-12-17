@@ -790,6 +790,189 @@ body {
     margin-right: auto;
 }
 
+/* Page Hero (for subpages) */
+.page-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 140px 24px 80px;
+    overflow: hidden;
+}
+
+.page-hero-content {
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--gray-100) 0%, var(--primary-200) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-hero-subtitle {
+    font-size: 18px;
+    color: var(--gray-300);
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+/* Pharmacy Page Hero */
+.pharmacy-hero h1 {
+    background: linear-gradient(135deg, var(--gray-100) 0%, #6ee7b7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pharmacy-orb.orb-1 {
+    background: radial-gradient(circle, #10b981, transparent);
+}
+
+.pharmacy-orb.orb-2 {
+    background: radial-gradient(circle, #059669, transparent);
+}
+
+.pharmacy-orb.orb-3 {
+    background: radial-gradient(circle, #34d399, transparent);
+}
+
+/* Pharmacy Buttons */
+.btn-pharmacy {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    border-color: #34d399 !important;
+}
+
+.btn-pharmacy:hover {
+    background: linear-gradient(135deg, #34d399, #10b981) !important;
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+}
+
+/* Pharmacy Tags */
+.pharmacy-tag {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.pharmacy-step {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.pharmacy-connector {
+    background: linear-gradient(to bottom, #10b981, #059669);
+}
+
+.pharmacy-featured {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.1));
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.pharmacy-model-tag {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+/* Pharmacy CTA Stats */
+.cta-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.cta-stat {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #34d399;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--gray-400);
+}
+
+.btn-large {
+    padding: 18px 40px;
+    font-size: 18px;
+}
+
+/* Solutions Preview Cards */
+.solutions-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+}
+
+.solution-preview-card {
+    padding: 40px;
+    text-decoration: none;
+    display: block;
+}
+
+.solution-preview-card:hover {
+    transform: translateY(-4px);
+}
+
+.solution-preview-header {
+    margin-bottom: 20px;
+}
+
+.solution-preview-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-100);
+    margin-bottom: 12px;
+}
+
+.solution-preview-card > p {
+    color: var(--gray-400);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.solution-preview-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-weight: 600;
+    color: var(--primary-400);
+    transition: color var(--transition-fast);
+}
+
+.solution-preview-card:hover .solution-preview-link {
+    color: var(--primary-300);
+}
+
+.pharmacy-preview .solution-preview-link {
+    color: #34d399;
+}
+
+.pharmacy-preview:hover .solution-preview-link {
+    color: #6ee7b7;
+}
+
+/* Active dropdown item */
+.dropdown-item.active {
+    background: var(--glass-bg);
+}
+
+.dropdown-item.active .dropdown-item-title {
+    color: var(--primary-400);
+}
+
 /* What We Do Section */
 .programs-showcase {
     display: flex;
@@ -1544,6 +1727,34 @@ body {
 
     .pharmacy-cta-card h2 {
         font-size: 22px;
+    }
+
+    /* Mobile page hero */
+    .page-hero {
+        min-height: auto;
+        padding: 120px 20px 60px;
+    }
+
+    .page-hero h1 {
+        font-size: 28px;
+    }
+
+    /* Mobile solutions preview */
+    .solutions-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-preview-card {
+        padding: 28px;
+    }
+
+    /* Mobile CTA stats */
+    .cta-stats {
+        gap: 24px;
+    }
+
+    .stat-value {
+        font-size: 24px;
     }
 }
 
