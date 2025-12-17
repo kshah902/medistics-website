@@ -150,6 +150,16 @@ body {
     color: var(--gray-100);
 }
 
+.logo-img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer .logo-img {
+    height: 32px;
+}
+
 .logo-icon {
     width: 40px;
     height: 40px;
@@ -826,6 +836,10 @@ body {
     line-height: 1.7;
 }
 
+.page-hero-content .hero-buttons {
+    justify-content: center;
+}
+
 /* Pharmacy Page Hero */
 .pharmacy-hero h1 {
     background: linear-gradient(135deg, var(--gray-100) 0%, #6ee7b7 100%);
@@ -1290,13 +1304,44 @@ body {
 /* Add-Ons Section */
 .addons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
 .addon-card {
     padding: 32px;
     position: relative;
+}
+
+.addon-card-tall {
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.addon-card-tall .feature-list {
+    flex-grow: 1;
+}
+
+.portal-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.portal-benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--gray-300);
+}
+
+.portal-benefit-icon {
+    font-size: 18px;
 }
 
 .addon-card h3 {
@@ -1321,6 +1366,51 @@ body {
     font-size: 12px;
     font-weight: 500;
     color: var(--gray-300);
+}
+
+.addon-featured {
+    border-color: rgba(59, 130, 246, 0.3);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(30, 64, 175, 0.04));
+}
+
+.addon-pricing {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.addon-pricing .price {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-400);
+}
+
+.addon-pricing .price-period {
+    font-size: 16px;
+    color: var(--gray-400);
+}
+
+.addon-extra {
+    margin-top: 16px;
+    padding: 16px;
+    background: var(--glass-bg);
+    border-radius: var(--radius-md);
+}
+
+.addon-extra p {
+    font-size: 14px;
+    color: var(--gray-300);
+    margin: 0;
+}
+
+.addon-extra p + p {
+    margin-top: 4px;
+    color: var(--gray-400);
+}
+
+.addons-grid-centered {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 /* Pharmacy Section */
@@ -1680,6 +1770,14 @@ body {
     .different-grid,
     .programs-grid {
         grid-template-columns: 1fr;
+    }
+
+    .addons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .addon-card-tall {
+        grid-row: span 1;
     }
 
     .process-timeline {
