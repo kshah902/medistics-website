@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initNavbar();
     initMobileMenu();
+    initDropdownMenu();
     initScrollAnimations();
     initSmoothScroll();
     initContactForm();
@@ -32,6 +33,7 @@ function initNavbar() {
 function initMobileMenu() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
+    const navbar = document.querySelector('.navbar');
 
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', () => {
@@ -39,8 +41,8 @@ function initMobileMenu() {
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
+        // Close menu when clicking a non-dropdown link
+        navLinks.querySelectorAll('a:not(.dropdown-trigger)').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenuBtn.classList.remove('active');
                 navLinks.classList.remove('active');
@@ -49,12 +51,51 @@ function initMobileMenu() {
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!navbar.contains(e.target)) {
+            if (navbar && !navbar.contains(e.target)) {
                 mobileMenuBtn.classList.remove('active');
                 navLinks.classList.remove('active');
             }
         });
     }
+}
+
+// Dropdown menu functionality
+function initDropdownMenu() {
+    const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+    dropdownTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const parent = trigger.closest('.nav-dropdown');
+
+            // On mobile, toggle the dropdown
+            if (window.innerWidth <= 768) {
+                parent.classList.toggle('active');
+            }
+        });
+    });
+
+    // Close dropdown when clicking dropdown item on mobile
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                const navLinks = document.querySelector('.nav-links');
+
+                dropdowns.forEach(d => d.classList.remove('active'));
+                mobileMenuBtn?.classList.remove('active');
+                navLinks?.classList.remove('active');
+            }
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-dropdown')) {
+            dropdowns.forEach(d => d.classList.remove('active'));
+        }
+    });
 }
 
 // Scroll animations using Intersection Observer
